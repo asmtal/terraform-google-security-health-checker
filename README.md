@@ -1,6 +1,6 @@
 # terraform-google-security-health-checker
 
-This module will deploy a cloud function that will provide display the security findings for a project used for infrastructure development. While there are prevent controls like Terraform Validator this module will help with detective controls from Security Command Center. 
+This module will deploy a cloud function that can be used by infrastructure developers or a build pipeline to detect security findings during infrastructure development.  
 
 The resources/services/activations/deletions that this module will create/trigger are:
 
@@ -75,7 +75,8 @@ A service account with the following roles must be used to provision
 the resources of this module:
 
 - Storage Admin: `roles/storage.admin`
-- Cloud Function Admin: `roles/
+- Cloud Function Admin: `roles/cloudfunctions.admin`
+- Security Admin: `roles/iam.securityAdmin`
 
 The [Project Factory module][project-factory-module] and the
 [IAM module][iam-module] may be used in combination to provision a
@@ -86,7 +87,9 @@ service account with the necessary roles applied.
 A project with the following APIs enabled must be used to host the
 resources of this module:
 
+- Cloud Functions JSON API: `cloudfunctions.googleapis.com`
 - Google Cloud Storage JSON API: `storage-api.googleapis.com`
+- Security Command Center JSON API: `securitycenter.googleapis.com`
 
 The [Project Factory module][project-factory-module] can be used to
 provision a project with the necessary APIs enabled.
