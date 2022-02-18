@@ -75,6 +75,7 @@ A service account with the following roles must be used to provision
 the resources of this module:
 
 - Storage Admin: `roles/storage.admin`
+- Cloud Function Admin: `roles/
 
 The [Project Factory module][project-factory-module] and the
 [IAM module][iam-module] may be used in combination to provision a
