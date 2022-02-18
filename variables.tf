@@ -43,7 +43,7 @@ variable "disable_dependent_services" {
 
 variable "activate_apis" {
   description = "The list of apis to activate for Cloud Function"
-  default     = ["storage.googleapis.com", "cloudfunctions.googleapis.com", "securitycenter.googleapis.com"]
+  default     = ["storage.googleapis.com", "cloudfunctions.googleapis.com", "securitycenter.googleapis.com","cloudbuild.googleapis.com"]
   type        = list(string)
 }
 

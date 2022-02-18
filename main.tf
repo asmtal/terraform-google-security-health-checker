@@ -70,6 +70,7 @@ resource "google_cloudfunctions_function" "function" {
     high_max     = var.high_max,
     medium_max   = var.medium_max
   }
+  depends_on = [google_project_service.project_services]
 }
 
 resource "google_storage_bucket" "gcf_source_bucket" {
@@ -77,6 +78,7 @@ resource "google_storage_bucket" "gcf_source_bucket" {
   uniform_bucket_level_access = true
   location                    = var.region
   project                     = var.project_id
+  depends_on = [google_project_service.project_services]
 }
 
 resource "google_storage_bucket_object" "gcf_zip_gcs_object" {
