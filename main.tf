@@ -87,15 +87,15 @@ resource "google_storage_bucket_object" "gcf_zip_gcs_object" {
 
 data "archive_file" "gcf_zip_file" {
   type        = "zip"
-  output_path = "${path.module}/function_source/${var.environment}.zip"
+  output_path = "${path.module}/files/${var.environment}.zip"
 
   source {
-    content  = file("${path.module}/function_source/main.py")
+    content  = file("${path.module}/files/main.py")
     filename = "main.py"
   }
 
   source {
-    content  = file("${path.module}/function_source/requirements.txt")
+    content  = file("${path.module}/files/requirements.txt")
     filename = "requirements.txt"
   }
 
