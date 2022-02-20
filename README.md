@@ -1,10 +1,10 @@
 # terraform-google-security-health-checker
 
-This module will deploy a cloud function that can be used by infrastructure developers or a build pipeline to detect security findings during infrastructure development.  
+This module will deploy a cloud function that can be used by infrastructure developers or a build pipeline to detect security findings during infrastructure development.
 
 The resources/services/activations/deletions that this module will create/trigger are:
 
-- A Cloud function to assess the security findings during infrastructure development 
+- A Cloud function to assess the security findings during infrastructure development
 
 ## Usage
 
@@ -36,7 +36,7 @@ Functional examples are included in the
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| activate\_apis | The list of apis to activate for Cloud Function | `list(string)` | <pre>[<br>  "storage.googleapis.com",<br>  "cloudfunctions.googleapis.com",<br>  "securitycenter.googleapis.com"<br>]</pre> | no |
+| activate\_apis | The list of apis to activate for Cloud Function | `list(string)` | <pre>[<br>  "storage.googleapis.com",<br>  "cloudfunctions.googleapis.com",<br>  "securitycenter.googleapis.com",<br>  "cloudbuild.googleapis.com"<br>]</pre> | no |
 | compliance\_framework | Compliance framework to base security health check on | `string` | `"pci"` | no |
 | critical\_max | Number of critical findings before alerting | `string` | `"0"` | no |
 | disable\_dependent\_services | Whether services that are enabled and which depend on this service should also be disabled when this service is destroyed. https://www.terraform.io/docs/providers/google/r/google_project_service.html#disable_dependent_services | `string` | `"false"` | no |
