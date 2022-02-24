@@ -18,7 +18,7 @@ module "project" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 11.0"
 
-  name              = "ci-security_health_checker"
+  name              = "ci-security-health-check"
   random_project_id = "true"
   org_id            = var.org_id
   folder_id         = var.folder_id
@@ -26,7 +26,12 @@ module "project" {
 
   activate_apis = [
     "cloudresourcemanager.googleapis.com",
-    "storage-api.googleapis.com",
-    "serviceusage.googleapis.com"
+    "storage.googleapis.com",
+    "cloudfunctions.googleapis.com",
+    "serviceusage.googleapis.com",
+    "cloudbuild.googleapis.com",
+    "iam.googleapis.com",
+    "securitycenter.googleapis.com"
   ]
 }
+

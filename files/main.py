@@ -96,7 +96,7 @@ def scc_helper_updated(request):
     # also use a specific source_name instead.
     source_name = "{project_name}/sources/-".format(project_name=project_name)
 
-    if comp_status == False:
+    if comp_status is False:
 
         FILTER = "state=\"ACTIVE\" AND (severity=\"HIGH\" OR severity=\"CRITICAL\" OR severity=\"MEDIUM\")"
 

@@ -15,6 +15,14 @@
  */
 
 variable "project_id" {
-  description = "The ID of the project in which to provision resources."
+  description = "Google Cloud Project where Cloud Function will be deployed"
+}
+
+variable "org_id" {
+  description = "Organization ID to monitor Security Health"
+}
+
+variable "identity_running_function" {
+  description = "Google group that will have permission to invoke the cloud function"
   type        = string
 }

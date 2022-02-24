@@ -14,19 +14,10 @@
  * limitations under the License.
  */
 
-provider "random" {
-  version = "~> 2.0"
-}
+module "security_health_checker" {
+  source                    = "../../.."
+  project_id                = var.project_id
+  org_id                    = var.org_id
+  identity_running_function = var.identity_running_function
 
-resource "random_pet" "main" {
-  length    = 1
-  prefix    = "simple-example"
-  separator = "-"
-}
-
-module "example" {
-  source = "../../../examples/simple_example"
-
-  project_id  = var.project_id
-  bucket_name = random_pet.main.id
 }
