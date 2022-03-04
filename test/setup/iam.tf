@@ -34,6 +34,18 @@ resource "google_project_iam_member" "int_test" {
   member  = "serviceAccount:${google_service_account.int_test.email}"
 }
 
+module "organization_iam_binding" {
+  source        = "terraform-google-modules/iam/google//modules/organizations_iam"
+  organizations = [var.org_id]
+  mode     = "additive"
+
+  bindings = {
+    "roles/resourcemanager.organizationAdmin" = [
+      "serviceAccount:${google_service_account.int_test.email}"
+    ]
+  }
+}
+
 resource "google_service_account_key" "int_test" {
   service_account_id = google_service_account.int_test.id
 }

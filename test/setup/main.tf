@@ -34,4 +34,3 @@ module "project" {
     "securitycenter.googleapis.com"
   ]
 }
-
