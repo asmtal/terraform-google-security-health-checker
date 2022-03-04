@@ -34,16 +34,10 @@ resource "google_project_iam_member" "int_test" {
   member  = "serviceAccount:${google_service_account.int_test.email}"
 }
 
-module "organization_iam_binding" {
-  source        = "terraform-google-modules/iam/google//modules/organizations_iam"
-  organizations = [var.org_id]
-  mode     = "additive"
-
-  bindings = {
-    "roles/resourcemanager.organizationAdmin" = [
-      "serviceAccount:${google_service_account.int_test.email}"
-    ]
-  }
+resource "google_organization_iam_member" "organization_iam_additive" {
+  org_id = var.org_id
+  role   = "roles/resourcemanager.organizationAdmin"
+  member = "serviceAccount:${google_service_account.int_test.email}"
 }
 
 resource "google_service_account_key" "int_test" {
